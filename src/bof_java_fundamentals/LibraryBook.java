@@ -28,6 +28,10 @@ public class LibraryBook {
 		this.copies = copies;
 	}
 
+	public Book getBook() {
+		return book;
+	}
+
 	@Override
 	public String toString() {
 		return String.format("%s (%d cpoies)", book, copies);

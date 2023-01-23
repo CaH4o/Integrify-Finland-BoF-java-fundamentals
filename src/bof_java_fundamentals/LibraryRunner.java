@@ -20,7 +20,14 @@ public class LibraryRunner {
 		centralLibrary.addBook("adminName", book2Lb);
 		centralLibrary.addBook("adminName", book3Lb);
 
-		centralLibrary.getBooks();
+		centralLibrary.showBooks();
+
+		User user1 = new User("User1");
+		User user2 = new User("User2");
+		centralLibrary.addPerson(user1);
+		centralLibrary.addPerson(user2);
+
+		centralLibrary.showPersons();
 	}
 
 }

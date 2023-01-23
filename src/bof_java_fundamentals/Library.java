@@ -12,23 +12,27 @@ public class Library {
 
 	public Library(String name) {
 		this.name = name;
-		books = new TreeMap<Integer, LibraryBook>();
-		persons = new ArrayList<LibraryPerson>();
-		borrows = new ArrayList<LibraryBooksBorrowed>();
+		this.books = new TreeMap<Integer, LibraryBook>();
+		this.persons = new ArrayList<LibraryPerson>();
+		this.borrows = new ArrayList<LibraryBooksBorrowed>();
 	}
 
-	public ArrayList<LibraryPerson> getPersons() {
-		return persons;
+	public String getName() {
+		return this.name;
 	}
 
 	public void addPerson(LibraryPerson person) {
 		this.persons.add(person);
 	}
 
+	public void showPersons() {
+		System.out.println(this.persons);
+	}
+
 	private boolean access(String personName) {
 		boolean access = false;
 
-		for (LibraryPerson person : persons) {
+		for (LibraryPerson person : this.persons) {
 			if (person instanceof Admin && person.getName() == personName)
 				access = true;
 		}
@@ -39,12 +43,31 @@ public class Library {
 	public void addBook(String personName, LibraryBook book) {
 		if (this.access(personName)) {
 			Integer id = Library.id++;
-			books.put(id, book);
+			this.books.put(id, book);
 		}
 	}
 
-	public void getBooks() {
-		System.out.println(books.values());
+	public void removeBook(String personName, int id) {
+		if (this.access(personName)) {
+			this.books.remove(id);
+		}
+	}
+
+	public Book getBook(int id) {
+		LibraryBook book = this.books.get(id);
+		if (book == null)
+			return null;
+		return book.getCopies() > 0 ? book.getBook() : null;
+	}
+
+	public void updateBook(String personName, int id) {
+		if (this.access(personName)) {
+			this.books.remove(id);
+		}
+	}
+
+	public void showBooks() {
+		System.out.println(this.books.values());
 	}
 
 }
