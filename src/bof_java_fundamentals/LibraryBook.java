@@ -10,14 +10,15 @@ public class LibraryBook {
 	public LibraryBook(Book book, int copies) {
 		this.book = book;
 		this.setCopies(copies);
+		this.category = new ArrayList<ECategory>();
 	}
 
 	public ArrayList<ECategory> getCategory() {
 		return category;
 	}
 
-	public void setCategory(ArrayList<ECategory> category) {
-		this.category = category;
+	public void setCategory(ECategory category) {
+		this.category.add(category);
 	}
 
 	public int getCopies() {
@@ -34,7 +35,7 @@ public class LibraryBook {
 
 	@Override
 	public String toString() {
-		return String.format("%s (%d cpoies)", book, copies);
+		return String.format("%s (%d cpoies) Cat: %s", this.book, this.copies, this.category);
 	}
 
 }

@@ -22,4 +22,10 @@ public class LibraryBooksBorrowed {
 	public void setRetern(boolean isRetern) {
 		this.isRetern = isRetern;
 	}
+
+	@Override
+	public String toString() {
+		return String.format("Borrow:\n Book: %s\n Who: %s;\n When: %s;\n Return: %b.", this.book.getBook(),
+				this.person, this.borrowDay.toString(), this.isRetern);
+	}
 }
