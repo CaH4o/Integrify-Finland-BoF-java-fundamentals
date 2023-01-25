@@ -6,26 +6,26 @@ public class LibraryBooksBorrowed {
 	private LibraryBook book;
 	private LibraryPerson person;
 	private Date borrowDay;
-	private boolean isRetern;
+	private boolean isReterned;
 
 	public LibraryBooksBorrowed(LibraryBook book, LibraryPerson person, Date borrowDay) {
 		this.book = book;
 		this.person = person;
 		this.borrowDay = borrowDay;
-		this.isRetern = false;
+		this.isReterned = false;
 	}
 
-	public boolean isRetern() {
-		return isRetern;
+	public boolean isReterned() {
+		return isReterned;
 	}
 
-	public void setRetern(boolean isRetern) {
-		this.isRetern = isRetern;
+	public void setReterned(boolean isReterned) {
+		this.isReterned = isReterned;
 	}
 
 	@Override
 	public String toString() {
 		return String.format("Borrow:\n Book: %s\n Who: %s;\n When: %s;\n Return: %b.", this.book.getBook(),
-				this.person, this.borrowDay.toString(), this.isRetern);
+				this.person, this.borrowDay.toString(), this.isReterned);
 	}
 }

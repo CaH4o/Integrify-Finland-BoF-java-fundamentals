@@ -32,8 +32,8 @@ public class LibraryRunner {
 		// update a book
 		System.out.println(centralLibrary.getLibraryBook(1));
 		LibraryBook bookToChane = centralLibrary.getLibraryBook(1);
-		bookToChane.setCategory(ECategory.historical);
-		bookToChane.setCategory(ECategory.scientific);
+		bookToChane.setCategory(ECategory.HISTORICAL);
+		bookToChane.setCategory(ECategory.SCIENTIFIC);
 		bookToChane.setCopies(bookToChane.getCopies() + 1);
 		centralLibrary.updateBook("adminName", 1, bookToChane);
 		System.out.println(centralLibrary.getLibraryBook(1));
